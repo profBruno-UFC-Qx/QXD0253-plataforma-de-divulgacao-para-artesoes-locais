@@ -12,7 +12,10 @@ Criar uma vitrine digital para artesãos exibirem seus trabalhos e gerenciarem v
 
 
 ## :eyes: Público-Alvo
-Artesãos locais (pequenos produtores) e consumidores interessados em apoiar o comércio da região.
+
+Quem serão os clientes? A secretaria do meio ambiente do municipio de capistrano (o nome do responsavel eu ainda vou me informar)
+Quem (parcela da sociedade) participará da concepção deste sistema? Os artesões de capistrano e de outros municipios do maciço de baturiter.
+
 
 
 ## :star2: Impacto Esperado
