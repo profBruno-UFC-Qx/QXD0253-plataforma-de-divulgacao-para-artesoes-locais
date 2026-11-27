@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#2e5e4e" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Artesãos · Artesanato do Maciço</title>
+  </head>
+  <body>
+    <main class="conteudo conteudo--estreito">
+      <h1 class="pagina__titulo">Artesãos</h1>
+      <p class="pagina__lead">Veja os artesãos cadastrados e analise os pedidos de quem quer vender.</p>
+
+      <form class="busca-pagina" role="search" id="form-busca">
+        <i class="bi bi-search" aria-hidden="true"></i>
+        <input id="busca" type="search" placeholder="Buscar por nome, e-mail ou cidade" aria-label="Buscar artesãos" autocomplete="off" />
+      </form>
+
+      <div class="filtros" id="abas" role="group" aria-label="Filtrar a lista">
+        <button type="button" class="chip-filtro" data-aba="todos" aria-pressed="true">Todos <span data-conta="todos"></span></button>
+        <button type="button" class="chip-filtro" data-aba="pedidos" aria-pressed="false">Pedidos <span data-conta="pedidos"></span></button>
+        <button type="button" class="chip-filtro" data-aba="artesaos" aria-pressed="false">Artesãos <span data-conta="artesaos"></span></button>
+      </div>
+
+      <ul class="lista-pessoas" id="lista" aria-live="polite"></ul>
+      <p class="feed__estado" id="estado" role="status"></p>
+    </main>
+    <script type="module" src="/src/scripts/artesoes.ts"></script>
+  </body>
+</html>

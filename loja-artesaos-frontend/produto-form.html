@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#2e5e4e" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Produto · Artesanato do Maciço</title>
+  </head>
+  <body>
+    <main class="conteudo conteudo--estreito">
+      <a class="voltar" href="/obras.html"><i class="bi bi-arrow-left" aria-hidden="true"></i> Voltar para Obras</a>
+      <h1 class="pagina__titulo" id="titulo">Novo produto</h1>
+      <p id="carregando" role="status" hidden>Carregando produto…</p>
+
+      <form id="form-produto" class="cartao" novalidate>
+        <div class="mb-3">
+          <label for="foto" class="form-label">Foto do produto</label>
+          <input id="foto" type="file" class="form-control" accept="image/*" />
+          <div class="invalid-feedback"></div>
+          <img id="preview" class="preview" alt="Prévia da foto" hidden />
+        </div>
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome do produto</label>
+          <input id="nome" type="text" class="form-control" maxlength="120" />
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="row g-3 mb-3">
+          <div class="col-6">
+            <label for="preco" class="form-label">Preço (R$)</label>
+            <input id="preco" type="number" class="form-control" min="0.01" step="0.01" inputmode="decimal" />
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="col-6">
+            <label for="peso" class="form-label">Peso (g)</label>
+            <input id="peso" type="number" class="form-control" min="1" step="1" inputmode="numeric" />
+            <div class="invalid-feedback"></div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="categoria" class="form-label">Categoria</label>
+          <select id="categoria" class="form-select">
+            <option value="">Selecione…</option>
+          </select>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="mb-3">
+          <label for="descricao" class="form-label">Descrição (opcional)</label>
+          <textarea id="descricao" class="form-control" rows="4" maxlength="1000"></textarea>
+        </div>
+
+        <div id="erro-geral" class="alert alert-danger d-none" role="alert"></div>
+
+        <div class="d-flex justify-content-end gap-2">
+          <a class="btn btn-outline-secondary" href="/obras.html">Cancelar</a>
+          <button id="btn-salvar" type="submit" class="btn btn-primary">Cadastrar produto</button>
+        </div>
+      </form>
+    </main>
+    <script type="module" src="/src/scripts/produto-form.ts"></script>
+  </body>
+</html>

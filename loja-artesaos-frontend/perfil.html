@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#2e5e4e" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Perfil · Artesanato do Maciço</title>
+  </head>
+  <body>
+    <main class="conteudo conteudo--estreito">
+      <header class="perfil__topo">
+        <div class="perfil__avatar" id="avatar" aria-hidden="true"></div>
+        <div>
+          <h1 class="perfil__nome" id="nome-topo">Meu perfil</h1>
+          <p class="perfil__email" id="email-topo"></p>
+          <span class="chip" id="papel"></span>
+        </div>
+      </header>
+
+      <div id="aviso-artesao" class="alert alert-info d-none" role="status">
+        Seu pedido para ser artesão está em análise pela Secretaria. Quando for aprovado, o painel Obras aparece no menu.
+      </div>
+
+      <section class="cartao" aria-labelledby="t-dados">
+        <h2 id="t-dados">Meus dados</h2>
+        <form id="form-dados" novalidate>
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input id="nome" type="text" class="form-control" autocomplete="name" maxlength="80" />
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label for="idade" class="form-label">Idade</label>
+            <input id="idade" type="number" class="form-control" inputmode="numeric" min="14" max="120" />
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input id="email" type="email" class="form-control" disabled />
+            <div class="form-text">O e-mail não pode ser alterado.</div>
+          </div>
+          <div id="msg-dados" class="alert d-none" role="alert"></div>
+          <button type="submit" id="btn-dados" class="btn btn-primary">Salvar alterações</button>
+        </form>
+      </section>
+
+      <section class="cartao" aria-labelledby="t-senha">
+        <h2 id="t-senha">Alterar senha</h2>
+        <form id="form-senha" novalidate>
+          <div class="mb-3">
+            <label for="senha-atual" class="form-label">Senha atual</label>
+            <input id="senha-atual" type="password" class="form-control" autocomplete="current-password" />
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label for="senha-nova" class="form-label">Nova senha</label>
+            <input id="senha-nova" type="password" class="form-control" autocomplete="new-password" />
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label for="senha-confirmar" class="form-label">Digite a nova senha novamente</label>
+            <input id="senha-confirmar" type="password" class="form-control" autocomplete="new-password" />
+            <div class="invalid-feedback"></div>
+          </div>
+          <div id="msg-senha" class="alert d-none" role="alert"></div>
+          <button type="submit" id="btn-senha" class="btn btn-primary">Alterar senha</button>
+        </form>
+      </section>
+
+      <section class="cartao" id="configuracoes" aria-labelledby="t-config">
+        <h2 id="t-config">Aparência</h2>
+        <div class="btn-group" role="group" aria-label="Tema da página">
+          <input type="radio" class="btn-check" name="tema" id="tema-auto" value="auto" />
+          <label class="btn btn-outline-secondary" for="tema-auto">Automático</label>
+          <input type="radio" class="btn-check" name="tema" id="tema-claro" value="claro" />
+          <label class="btn btn-outline-secondary" for="tema-claro">Claro</label>
+          <input type="radio" class="btn-check" name="tema" id="tema-escuro" value="escuro" />
+          <label class="btn btn-outline-secondary" for="tema-escuro">Escuro</label>
+        </div>
+        <p class="form-text mt-2">No modo automático, a página segue o tema do seu aparelho.</p>
+      </section>
+
+      <section class="cartao" aria-labelledby="t-sessao">
+        <h2 id="t-sessao">Sessão</h2>
+        <button type="button" id="btn-sair-perfil" class="btn btn-outline-danger">
+          <i class="bi bi-box-arrow-right" aria-hidden="true"></i> Sair da conta
+        </button>
+      </section>
+    </main>
+    <script type="module" src="/src/scripts/perfil.ts"></script>
+  </body>
+</html>

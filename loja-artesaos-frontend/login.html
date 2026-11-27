@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#2e5e4e" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Entrar · Artesanato do Maciço</title>
+  </head>
+  <body>
+    <main class="cadastro">
+      <h1 class="cadastro__title">Entrar</h1>
+      <p class="cadastro__lead">Entre para ver os detalhes dos produtos e falar com os artesãos.</p>
+
+      <form id="form-login" novalidate>
+        <div class="mb-3">
+          <label for="email" class="form-label">E-mail</label>
+          <input id="email" name="email" type="email" class="form-control" autocomplete="email" />
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="mb-3">
+          <label for="senha" class="form-label">Senha</label>
+          <input id="senha" name="senha" type="password" class="form-control" autocomplete="current-password" />
+          <div class="invalid-feedback"></div>
+        </div>
+
+        <div id="aviso-sessao" class="alert alert-warning d-none" role="status">
+          Sua sessão expirou. Entre novamente para continuar.
+        </div>
+
+        <div id="erro-geral" class="alert alert-danger d-none" role="alert"></div>
+
+        <button id="btn-enviar" type="submit" class="btn btn-primary w-100">Entrar</button>
+      </form>
+
+      <p class="cadastro__alt">Ainda não tem conta? <a id="link-cadastro" href="/cadastro.html">Criar conta</a></p>
+      <p class="cadastro__alt"><a href="/">Voltar para a vitrine</a></p>
+    </main>
+    <script type="module" src="/src/scripts/login.ts"></script>
+  </body>
+</html>
