@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#2e5e4e" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Criar conta · Artesanato do Maciço</title>
+  </head>
+  <body>
+    <main class="cadastro">
+      <h1 class="cadastro__title">Criar conta</h1>
+      <p class="cadastro__lead">Cadastre-se para ver os detalhes dos produtos e falar com os artesãos.</p>
+
+      <form id="form-cadastro" novalidate>
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome</label>
+          <input id="nome" name="nome" type="text" class="form-control" autocomplete="name" maxlength="80" />
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="mb-3">
+          <label for="idade" class="form-label">Idade</label>
+          <input id="idade" name="idade" type="number" class="form-control" inputmode="numeric" min="14" max="120" />
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">E-mail</label>
+          <input id="email" name="email" type="email" class="form-control" autocomplete="email" />
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="mb-3">
+          <label for="senha" class="form-label">Senha</label>
+          <input id="senha" name="senha" type="password" class="form-control" autocomplete="new-password" />
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="mb-3">
+          <label for="confirmar" class="form-label">Digite a senha novamente</label>
+          <input id="confirmar" name="confirmar" type="password" class="form-control" autocomplete="new-password" />
+          <div class="invalid-feedback"></div>
+        </div>
+
+        <div class="form-check mb-3">
+          <input id="quer-artesao" class="form-check-input" type="checkbox" />
+          <label class="form-check-label" for="quer-artesao">
+            Quero vender meus produtos como artesão
+            <span class="d-block text-secondary small">A Secretaria analisa o pedido antes de liberar o painel de artesão.</span>
+          </label>
+        </div>
+
+        <fieldset id="campos-artesao" class="campos-extra" hidden>
+          <legend class="campos-extra__titulo">Sobre o seu trabalho</legend>
+          <p class="text-secondary small">Essas informações ajudam a Secretaria a analisar o seu pedido.</p>
+          <div class="mb-3">
+            <label for="categoria" class="form-label">Categoria principal</label>
+            <select id="categoria" class="form-select">
+              <option value="">Selecione…</option>
+            </select>
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label for="cidade" class="form-label">Cidade</label>
+            <input id="cidade" type="text" class="form-control" maxlength="80" autocomplete="address-level2" />
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label for="whatsapp" class="form-label">WhatsApp</label>
+            <input id="whatsapp" type="tel" inputmode="tel" class="form-control" placeholder="(85) 99999-9999" autocomplete="tel" />
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="mb-1">
+            <label for="sobre" class="form-label">Conte um pouco sobre o seu trabalho (opcional)</label>
+            <textarea id="sobre" class="form-control" rows="3" maxlength="500"></textarea>
+          </div>
+        </fieldset>
+
+        <div id="erro-geral" class="alert alert-danger d-none" role="alert"></div>
+
+        <button id="btn-enviar" type="submit" class="btn btn-primary w-100">Criar conta</button>
+      </form>
+
+      <p class="cadastro__alt">Já tem conta? <a id="link-login" href="/login.html">Entrar</a></p>
+      <p class="cadastro__alt"><a href="/">Voltar para a vitrine</a></p>
+    </main>
+    <script type="module" src="/src/scripts/cadastro.ts"></script>
+  </body>
+</html>

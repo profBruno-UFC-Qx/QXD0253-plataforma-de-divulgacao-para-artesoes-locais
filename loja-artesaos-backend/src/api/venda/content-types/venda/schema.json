@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vendas",
+  "info": {
+    "singularName": "venda",
+    "pluralName": "vendas",
+    "displayName": "Venda"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "produto": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::produto.produto"
+    },
+    "artesao": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "nomeComprador": {
+      "type": "string"
+    },
+    "quantidade": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "default": 1
+    },
+    "valor": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "dataVenda": {
+      "type": "date",
+      "required": true
+    }
+  }
+}

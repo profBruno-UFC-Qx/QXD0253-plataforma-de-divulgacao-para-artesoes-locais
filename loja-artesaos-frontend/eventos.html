@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#2e5e4e" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Eventos · Artesanato do Maciço</title>
+  </head>
+  <body>
+    <main class="conteudo conteudo--estreito">
+      <h1 class="pagina__titulo">Eventos e notícias</h1>
+      <p class="pagina__lead">Fique por dentro das feiras, encontros e novidades do artesanato da região.</p>
+
+      <div class="lista-eventos" id="lista" aria-live="polite"></div>
+      <p class="feed__estado" id="estado" role="status"></p>
+      <div class="text-center pb-5">
+        <button type="button" id="btn-mais" class="btn btn-outline-secondary" hidden>Carregar mais</button>
+      </div>
+    </main>
+
+    <button type="button" id="btn-novo" class="fab" aria-label="Adicionar notícia ou evento" hidden>
+      <i class="bi bi-plus-lg" aria-hidden="true"></i>
+    </button>
+
+    <dialog id="dialogo" class="dialogo" aria-labelledby="dialogo-titulo">
+      <form id="form-evento" class="dialogo__corpo" novalidate>
+        <h2 id="dialogo-titulo" class="dialogo__titulo">Nova notícia ou evento</h2>
+
+        <div class="mb-3">
+          <label for="ev-titulo" class="form-label">Nome</label>
+          <input id="ev-titulo" type="text" class="form-control" maxlength="120" />
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="mb-3">
+          <label for="ev-data" class="form-label">Data</label>
+          <input id="ev-data" type="date" class="form-control" />
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="mb-3">
+          <label for="ev-descricao" class="form-label">Descrição</label>
+          <textarea id="ev-descricao" class="form-control" rows="5" maxlength="2000"></textarea>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="mb-3">
+          <label for="ev-foto" class="form-label">Foto (opcional)</label>
+          <input id="ev-foto" type="file" class="form-control" accept="image/*" />
+          <div class="invalid-feedback"></div>
+          <img id="ev-preview" class="preview" alt="Prévia da foto" hidden />
+          <div id="ev-remover-bloco" class="form-check mt-2" hidden>
+            <input id="ev-remover" type="checkbox" class="form-check-input" />
+            <label for="ev-remover" class="form-check-label">Remover a foto atual</label>
+          </div>
+        </div>
+
+        <div id="ev-erro" class="alert alert-danger d-none" role="alert"></div>
+
+        <div class="dialogo__acoes">
+          <button type="button" id="ev-cancelar" class="btn btn-outline-secondary">Cancelar</button>
+          <button type="submit" id="ev-salvar" class="btn btn-primary">Publicar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <template id="tpl-evento">
+      <article class="evento">
+        <img class="evento__img" data-campo="imagem" alt="" loading="lazy" hidden />
+        <div class="evento__corpo">
+          <p class="evento__data"><i class="bi bi-calendar-event" aria-hidden="true"></i> <time data-campo="data"></time></p>
+          <h2 class="evento__titulo" data-campo="titulo"></h2>
+          <p class="evento__texto" data-campo="descricao"></p>
+          <div class="evento__acoes" data-campo="acoes" hidden>
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-campo="editar">
+              <i class="bi bi-pencil" aria-hidden="true"></i> Editar
+            </button>
+            <button type="button" class="btn btn-sm btn-outline-danger" data-campo="excluir">
+              <i class="bi bi-trash" aria-hidden="true"></i> Excluir
+            </button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script type="module" src="/src/scripts/eventos.ts"></script>
+  </body>
+</html>

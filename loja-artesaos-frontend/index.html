@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#2e5e4e" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Artesanato do Maciço</title>
+  </head>
+  <body>
+    <main class="conteudo">
+      <div class="filtros" id="filtros" role="group" aria-label="Filtrar por categoria"></div>
+      <div class="feed" id="feed" aria-live="polite"></div>
+      <p class="feed__estado" id="estado" role="status"></p>
+      <div class="text-center pb-4">
+        <button type="button" id="btn-mais" class="btn btn-outline-secondary" hidden>Carregar mais</button>
+      </div>
+    </main>
+
+    <template id="tpl-post">
+      <article class="post" data-requires-auth>
+        <header class="post__header">
+          <div class="post__meta">
+            <h2 class="post__title">
+              <a class="post__link" data-campo="nome" data-requires-auth href="#"></a>
+            </h2>
+            <p class="post__by"><span data-campo="artesao"></span> <time data-campo="data"></time></p>
+          </div>
+          <span class="avatar" data-campo="avatar" aria-hidden="true"></span>
+        </header>
+        <img class="post__img" data-campo="imagem" alt="" width="600" height="600" loading="lazy" />
+        <div class="post__body">
+          <div class="d-flex align-items-center justify-content-between gap-2">
+            <p class="post__price" data-campo="preco"></p>
+            <span class="chip" data-campo="categoria"></span>
+          </div>
+          <p class="post__desc" data-campo="descricao"></p>
+        </div>
+      </article>
+    </template>
+
+    <script type="module" src="/src/scripts/home.ts"></script>
+  </body>
+</html>

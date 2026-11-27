@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#2e5e4e" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Obras · Artesanato do Maciço</title>
+  </head>
+  <body>
+    <main class="conteudo conteudo--estreito">
+      <h1 class="pagina__titulo">Obras</h1>
+      <p class="pagina__lead">Gerencie os seus produtos e acompanhe as suas vendas.</p>
+
+      <section class="cartao" aria-labelledby="t-saida">
+        <h2 id="t-saida">Saída de produtos</h2>
+        <dl class="kpis">
+          <div><dt>Produtos cadastrados</dt><dd id="kpi-produtos">–</dd></div>
+          <div><dt>Itens vendidos no mês</dt><dd id="kpi-itens">–</dd></div>
+          <div><dt>Faturamento do mês</dt><dd id="kpi-valor">–</dd></div>
+        </dl>
+        <p class="text-secondary small mb-2">Itens vendidos por mês (últimos 6 meses)</p>
+        <div id="grafico" class="grafico"></div>
+        <p id="grafico-vazio" class="text-secondary small mt-2 mb-0" hidden>
+          Ainda não há vendas registradas. Use “Registrar venda” em um produto para alimentar o gráfico.
+        </p>
+      </section>
+
+      <section aria-labelledby="t-produtos">
+        <h2 id="t-produtos" class="secao__titulo">Meus produtos</h2>
+        <form class="busca-pagina" role="search" id="form-busca">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <input id="busca" type="search" placeholder="Buscar nos meus produtos" aria-label="Buscar nos meus produtos" autocomplete="off" />
+        </form>
+        <div id="msg" class="alert d-none" role="alert"></div>
+        <ul class="lista-obras" id="lista" aria-live="polite"></ul>
+        <p class="feed__estado" id="estado" role="status"></p>
+        <nav id="paginacao" class="paginacao" aria-label="Páginas de produtos" hidden></nav>
+      </section>
+
+      <section class="cartao mt-4" aria-labelledby="t-vendas">
+        <h2 id="t-vendas">Vendas recentes</h2>
+        <ul class="lista-vendas" id="lista-vendas"></ul>
+        <p class="text-secondary small mb-0" id="vendas-vazio" hidden>Nenhuma venda registrada ainda.</p>
+      </section>
+    </main>
+
+    <a class="fab" href="/produto-form.html" aria-label="Cadastrar novo produto">
+      <i class="bi bi-plus-lg" aria-hidden="true"></i>
+    </a>
+
+    <dialog id="dialogo-venda" class="dialogo" aria-labelledby="vd-titulo">
+      <form id="form-venda" class="dialogo__corpo" novalidate>
+        <h2 id="vd-titulo" class="dialogo__titulo">Registrar venda</h2>
+        <p class="text-secondary" id="vd-produto"></p>
+        <div class="row g-3 mb-3">
+          <div class="col-5">
+            <label for="vd-quantidade" class="form-label">Quantidade</label>
+            <input id="vd-quantidade" type="number" class="form-control" min="1" step="1" value="1" inputmode="numeric" />
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="col-7">
+            <label for="vd-valor" class="form-label">Valor total (R$)</label>
+            <input id="vd-valor" type="number" class="form-control" min="0.01" step="0.01" inputmode="decimal" />
+            <div class="invalid-feedback"></div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="vd-data" class="form-label">Data da venda</label>
+          <input id="vd-data" type="date" class="form-control" />
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="mb-3">
+          <label for="vd-comprador" class="form-label">Nome do comprador (opcional)</label>
+          <input id="vd-comprador" type="text" class="form-control" maxlength="80" />
+        </div>
+        <div id="vd-erro" class="alert alert-danger d-none" role="alert"></div>
+        <div class="dialogo__acoes">
+          <button type="button" id="vd-cancelar" class="btn btn-outline-secondary">Cancelar</button>
+          <button type="submit" id="vd-salvar" class="btn btn-primary">Registrar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <template id="tpl-obra">
+      <li class="obra">
+        <img class="obra__img" data-campo="imagem" alt="" loading="lazy" />
+        <div class="obra__info">
+          <h3 class="obra__nome" data-campo="nome"></h3>
+          <p class="obra__detalhe"><span data-campo="preco"></span> <span class="chip" data-campo="categoria"></span></p>
+          <p class="obra__data">Cadastrado <time data-campo="data"></time></p>
+        </div>
+        <div class="obra__acoes">
+          <button type="button" class="btn btn-sm btn-outline-secondary" data-campo="vender">
+            <i class="bi bi-cash-coin" aria-hidden="true"></i> Registrar venda
+          </button>
+          <a class="btn btn-sm btn-outline-secondary" data-campo="editar" href="#">
+            <i class="bi bi-pencil" aria-hidden="true"></i> Editar
+          </a>
+          <button type="button" class="btn btn-sm btn-outline-danger" data-campo="excluir">
+            <i class="bi bi-trash" aria-hidden="true"></i> Excluir
+          </button>
+        </div>
+      </li>
+    </template>
+
+    <script type="module" src="/src/scripts/obras.ts"></script>
+  </body>
+</html>
